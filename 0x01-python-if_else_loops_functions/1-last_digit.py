@@ -5,7 +5,7 @@ i = number
 if number < 0:
     i = -number
 last = i % 10
-if last < 0:
+if number < 0:
     last = -last
 print("Last digit of {:d} is {:d} ".format(number, last), end='')
 if last > 5:
