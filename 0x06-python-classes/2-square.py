@@ -6,7 +6,7 @@ Attributes:
 
 
 class Square:
-    """Creates a class Square given a size 
+    """Creates a class Square given a size
     Attributes:
         None
     """
