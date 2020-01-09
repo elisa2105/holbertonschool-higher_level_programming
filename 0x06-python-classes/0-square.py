@@ -3,6 +3,8 @@
 Attributes:
           None
 """
+
+
 class Square:
     """Creates an empty class called Square
     Attributes:
