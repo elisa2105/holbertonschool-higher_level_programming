@@ -1,25 +1,17 @@
 #!/usr/bin/python3
+"""
+adds all arguments to a Python list, and then save them to a file
+"""
 import sys
 save_to_json_file = __import__('7-save_to_json_file').save_to_json_file
 load_from_json_file = __import__('8-load_from_json_file').load_from_json_file
 
+nlist = sys.argv[1:]
 
-def add_item(arguments, filename):
-    '''
-    Adds arguments to a Python list and then saves them to a JSON file
-    [:param arguments:] the arguments to be added
-    [:param filename:] the name of the file to save to
-    '''
-    try:
-        to_save = load_from_json_file(filename)
-    except:
-        to_save = []
+try:
+    olist = load_from_json_file("add_item.json")
+except:
+    olist = []
 
-    for arg in arguments:
-        to_save.append(arg)
-    save_to_json_file(to_save, filename)
-
-if __name__ == "__main__":
-    arguments = sys.argv[1:]
-    filename = "add_item.json"
-    add_item(arguments, filename)
+olist.extend(nlist)
+save_to_json_file(olist, "add_item.json")
