@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 import sys
-sjson_file = __import__('7-save_to_json_file').save_to_json_file
-ljson_file = __import__('8-load_from_json_file').load_from_json_file
+save_to_json_file = __import__('7-save_to_json_file').save_to_json_file
+load_from_json_file = __import__('8-load_from_json_file').load_from_json_file
 
 
 def add_item(arguments, filename):
@@ -11,13 +11,13 @@ def add_item(arguments, filename):
     [:param filename:] the file
     '''
     try:
-        save = ljson_file(filename)
+        save = load_from_json_file(filename)
     except:
         save = []
 
-    for arg in arguments:
-        save.append(arg)
-    sjson_file(save, filename)
+    for i in arguments:
+        save.append(i)
+    save_to_json_file(save, filename)
 
 if __name__ == "__main__":
     arguments = sys.argv[1:]
