@@ -1,4 +1,4 @@
 -- creates a database 
 -- creates the database hbtn_0c_0 in your MySQL
-SHOW TABLES;
+CREATE DATABASE if not exists hbtn_0c_0;
 
