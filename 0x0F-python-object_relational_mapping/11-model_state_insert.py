@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Adding state using sqlalchemy
+Adding a state to a database using sqlalchemy
 """
 from model_state import Base, State
 from sys import argv
