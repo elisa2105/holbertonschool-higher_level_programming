@@ -16,7 +16,7 @@ if __name__ == "__main__":
 
     cursor = connection.cursor()
     cursor.execute("SELECT cities.name FROM `cities` JOIN `states`\
-                   ON cities.state_id=states.id LIKE BINARY %s\
+                   ON cities.state_id=states.id WHERE states.name=%s\
                    ORDER BY cities.id ASC", (param,))
     cities = cursor.fetchall()
     print(', '.join([i[0] for city in cities]))
