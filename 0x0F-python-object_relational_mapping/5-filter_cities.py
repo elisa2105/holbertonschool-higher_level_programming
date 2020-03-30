@@ -1,24 +1,29 @@
 #!/usr/bin/python3
 """
-Lists all cities in a given state
+Module State
+lists all cities
 """
-import sys
+from sys import argv
 import MySQLdb
+if __name__ == '__main__':
+    MY_USER = argv[1]
+    MY_PASSWD = argv[2]
+    MY_DB = argv[3]
+    paramstate = argv[4]
 
+    mydb = MySQLdb.connect(host="localhost",
+                           user=MY_USER,
+                           passwd=MY_PASSWD,
+                           db=MY_DB)
 
-if __name__ == "__main__":
-    userd = sys.argv[1]
-    passd = sys.argv[2]
-    db_name = sys.argv[3]
-    param = sys.argv[4]
-    connection = MySQLdb.connect(host="localhost", port=3306, user=userd,
-                                 password=passd, db=db_name, charset="utf8")
-
-    cursor = connection.cursor()
-    cursor.execute("SELECT cities.name FROM `cities` JOIN `states`\
-                   ON cities.state_id=states.id WHERE states.name=%s\
-                   ORDER BY cities.id ASC", (param,))
-    cities = cursor.fetchall()
-    print(', '.join([i[0] for city in cities]))
-    cursor.close()
-    connection.close()
+    myCursor = mydb.cursor()
+    sql = "select cities.name from cities\
+           inner join states on cities.state_id = states.id\
+           where states.name = %s\
+           order by cities.id asc"
+    myCursor.execute(sql, (paramstate,))
+    cities = myCursor.fetchall()
+    c = ", ".join(city[0] for city in cities)
+    print(c)
+    myCursor.close()
+    mydb.close()
