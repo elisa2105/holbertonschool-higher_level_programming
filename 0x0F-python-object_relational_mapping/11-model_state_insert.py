@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-''' adds object Louisiana to the database '''
+''' adds the State object Louisiana to the database hbtn_0e_6_usa '''
+
 import sys
 from model_state import Base, State
 from sqlalchemy import create_engine
@@ -15,7 +16,9 @@ if __name__ == "__main__":
     DBSession.bind = engine
     session = DBSession()
 
+    # create state object
     addState = State("Louisiana")
+    # commit and close session
     session.add(addState)
     session.commit()
 
