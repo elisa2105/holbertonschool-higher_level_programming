@@ -1,3 +1,3 @@
 #!/bin/bash
-# Send a DELETE request, display the body
-curl -sX DELETE $1
+# Send GET request, display body
+curl -sL "$1" 
