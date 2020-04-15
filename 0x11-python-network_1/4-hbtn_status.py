@@ -4,7 +4,7 @@ Request a URL sing request
 """
 import requests
 
-if __name__ == "__main__":   
+if __name__ == "__main__":
     url = "https://intranet.hbtn.io/status"
     req = requests.get(url)
     print("Body response:")
