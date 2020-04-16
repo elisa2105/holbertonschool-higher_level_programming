@@ -1,15 +1,15 @@
 #!/usr/bin/python3
-"""
-request to github and display user id
-"""
+"""get id github """
 
 import requests
-from sys import argv
+import sys
 
 if __name__ == "__main__":
-    user = argv[1]
-    pwd = argv[2]
-    url = "https://api.github.com/users"
-    req = requests.get(url, auth=(user, pwd))
-    json = req.json()
+    url = 'https://api.github.com/user'
+    if len(sys.argv) > 1:
+        user = sys.argv[1]
+        pwd = sys.argv[2]
+
+    r = requests.get(url, auth=(user, pwd))
+    json = r.json()
     print("{}".format(json.get('id')))
