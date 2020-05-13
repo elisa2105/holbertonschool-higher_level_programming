@@ -2,7 +2,9 @@
 const req = require('request');
 const url = 'https://swapi-api.hbtn.io/api/films/';
 req.get(url, (error, response, body) => {
-  if (error) { console.log(error); } else {
+  if (error || response.statusCode !== 200) { console.log(error); } 
+  
+  else {
     const list = JSON.parse(body).results;
     const characters = [];
     let count = 0;
