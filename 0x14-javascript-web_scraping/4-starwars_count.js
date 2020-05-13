@@ -10,7 +10,7 @@ req.get(url, (error, response, body) => {
       characters.push(list[i].characters);
     }
     for (let j = 0; j < characters.length; j++) {
-      if (String(characters[j]).includes('/18/')) {
+      if (String(characters[j]).includes('https://swapi-api.hbtn.io/api/people/18/')) {
         count = count + 1;
       }
     }
